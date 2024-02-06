@@ -1,0 +1,83 @@
+<nav class="flex justify-between items-center bg-base-200 shadow-md shadow-base-300 relative z-40 px-2" style="--prova: bg-yellow-800;">
+    <div class="flex gap-3">
+        <div class="flex">
+            <img routerLink="" [ngSrc]="chooseLogo(configService.theme())" width="300" height="111" style="width: 140px; height: fit-content;" class="cursor-pointer" priority alt="logo" disableOptimizedSrcset>
+            <div class="divider divider-horizontal divider-primary"></div>
+        </div>
+        <ul class="hidden lg:flex items-center gap-4 font-bold text-lg custom-transition">
+            <li routerLink="" class="after:bg-primary cursor-pointer">Home</li>
+            <li routerLink="about" class="after:bg-primary cursor-pointer">{{ 'aboutProject' | translate }}</li>
+
+            @if (loggedIn) {
+                <li routerLink="personalArea" class="after:bg-primary cursor-pointer">{{ 'personalArea' | translate }}</li>
+                <li (click)="logout()" class="btn btn-sm btn-accent">Logout</li>
+            } @else {
+                <li (click)="register()" class="btn btn-sm btn-secondary">{{ 'register' | translate }}</li>
+                <li (click)="login()" class="btn btn-sm btn-accent">Login</li>
+            }
+        </ul>
+        <div class="flex items-center lg:hidden">
+            <div class="dropdown">
+                <fa-icon [icon]="faBars" tabindex="0" role="button" class="btn btn-circle text-2xl transition-all duration-300 hover:text-primary"></fa-icon>
+                <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow shadow-base-300 bg-base-100 rounded-box w-52">
+                    <li><a routerLink="">Home</a></li>
+                    <li><a routerLink="about">{{ 'aboutProject' | translate }}</a></li>
+                    @if (loggedIn) {
+                        <li><a routerLink="personalArea">{{ 'personalArea' | translate }}</a></li>
+                        <li><a (click)="logout()">Logout</a></li>
+                    } @else {
+                        <li><div><a (click)="register()" class="underline italic">{{ 'register' | translate }}</a></div></li>
+                        <li><div><a (click)="login()" class="underline italic">Login</a></div></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex">
+        <div class="dropdown dropdown-end">
+            <fa-icon [icon]="faPalette" tabindex="0" role="button" class="transition-all duration-300 hover:text-primary btn btn-circle flex justify-center text-2xl items-center tooltip tooltip-left" [attr.data-tip]="'changeTheme' | translate"></fa-icon>
+            <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow shadow-base-300 bg-base-100 rounded-2xl w-64 italic capitalize">
+                @for (theme of themes; track theme) {
+                <li (click)="configService.useTheme(theme)" [attr.data-theme]="theme" class="m-1 rounded-2xl border border-success" [class]="{'border': themeMatch(theme)}">
+                    <div class="flex justify-between">
+                        @if (themeMatch(theme)) {
+                        <div class="flex gap-1">
+                            <fa-icon [icon]="faCheck" class="text-success"></fa-icon>
+                            <span>{{ theme }}</span>
+                        </div>
+                        }
+                        @else {
+                        <span>{{ theme }}</span>
+                        }
+                        <div class="flex gap-2">
+                            <div class="w-6 h-6 bg-primary"></div>
+                            <div class="w-6 h-6 bg-secondary"></div>
+                            <div class="w-6 h-6 bg-accent"></div>
+                        </div>
+                    </div>
+                </li>
+                }
+            </ul>
+        </div>
+
+        <div class="dropdown dropdown-end">
+            <div tabindex="0" role="button" class="transition-all duration-300 hover:text-primary btn btn-circle flex justify-center items-center tooltip tooltip-left" [attr.data-tip]="'changeLanguage' | translate"><span class="italic capitalize">{{ configService.language() }}</span></div>
+            <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow shadow-base-300 bg-base-100 rounded-2xl w-32 italic capitalize">
+                @for (language of languages; track language.name) {
+                <li id="language-{{language}}" (click)="configService.useLanguage(language.name)" class="rounded-2xl m-1 border-success" [class]="{'border': languageMatch(language.name)}">
+                    @if (languageMatch(language.name)) {
+                        <div class="flex gap-1">
+                            <fa-icon [icon]="faCheck" class="text-success"></fa-icon>
+                            <div>{{ language.fullName }}</div>
+                        </div>
+                    }
+                    @else {
+                        <div>{{ language.fullName }}</div>
+                    }
+                </li>
+                }
+            </ul>
+        </div>
+    </div>
+</nav>

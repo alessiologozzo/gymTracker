@@ -1,0 +1,10 @@
+.drawer-height {
+    height: calc(100vh - var(--topbar_height));
+    overflow: hidden;
+}
+
+.drawer-toggle-position {
+    position: fixed;
+    top: calc(var(--topbar_height) + 10px);
+    left: 10px;
+}

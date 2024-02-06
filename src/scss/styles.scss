@@ -1,0 +1,23 @@
+@import "./variables.scss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+}
+
+.custom-fade-in {
+    animation: custom-fade-in-animation 600ms linear;
+}
+
+@keyframes custom-fade-in-animation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

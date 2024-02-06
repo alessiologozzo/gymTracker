@@ -1,0 +1,43 @@
+<div class="drawer lg:drawer-open drawer-height">
+    <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
+    <div class="drawer-content h-full overflow-y-auto">
+        <!-- Page content here -->
+        <label for="my-drawer-2" class="lg:hidden drawer-toggle-position z-20">
+            <fa-icon [icon]="faCircleArrowRight" class="block text-5xl transition-transform duration-300 cursor-pointer hover:scale-110"></fa-icon>
+        </label>
+
+        <div class="w-full h-full overflow-y-auto px-8 pt-20 lg:p-6 relative">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+    <div class="drawer-side h-full shadow shadow-base-100 z-50">
+        <label for="my-drawer-2" aria-label="close sidebar" class="drawer-overlay"></label>
+        <ul class="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
+            <!-- Sidebar content here -->
+            <li routerLink="./">
+                <div class="flex items-center gap-4 text-xl italic">
+                    <div class="w-[20px] text-center">
+                        <fa-icon [icon]="faHouse"></fa-icon>
+                    </div>
+                    <span>Dashboard</span>
+                </div>
+            </li>
+            <li routerLink="bodyMassIndex">
+                <div class="flex items-center gap-4 text-xl italic">
+                    <div class="w-[20px] text-center">
+                        <fa-icon [icon]="faCalculator"></fa-icon>
+                    </div>
+                    <span>Body Mass Index</span>
+                </div>
+            </li>
+            <!-- <li routerLink="exercises">
+                <div class="flex items-center gap-4 text-xl italic">
+                    <div class="w-[20px] text-center">
+                        <fa-icon [icon]="faDumbbell"></fa-icon>
+                    </div>
+                    <span>{{ 'myExercises' | translate }}</span>
+                </div>
+            </li> -->
+        </ul>
+    </div>
+</div>

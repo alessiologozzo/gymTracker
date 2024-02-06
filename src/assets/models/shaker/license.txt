@@ -1,0 +1,11 @@
+Model Information:
+* title:	Gym Shaker Bottle
+* source:	https://sketchfab.com/3d-models/gym-shaker-bottle-38d6d1c01caa499cbbe2c4b2a037b073
+* author:	ali_hidayat (https://sketchfab.com/ali_hidayat)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Gym Shaker Bottle" (https://sketchfab.com/3d-models/gym-shaker-bottle-38d6d1c01caa499cbbe2c4b2a037b073) by ali_hidayat (https://sketchfab.com/ali_hidayat) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

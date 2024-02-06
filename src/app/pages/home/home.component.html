@@ -1,0 +1,33 @@
+@if (!fitnessSceneLoaded) {
+<app-loading-icon [fullScreen]="true" [wait]="false"></app-loading-icon>
+}
+
+<div class="wrapper">
+    <div class="container">
+        <div class="mt-6 grid grid-cols-12">
+            <div sf-transition="fade" class="col-span-12 lg:col-span-8 h-section relative pointer-events-none z-10" [class]="{'hidden': !fitnessSceneLoaded}">
+                <div class="welcome uppercase relative z-10 text-center tracking-[5px] h-24 md:text-2xl md:tracking-[10px] md:h-32 lg:text-4xl lg:tracking-[15px] lg:h-40 xl:text-5xl xl:h-52 2xl:text-6xl 2xl:h-60 pointer-events-none">
+                    {{ 'autoTypedStatic' | translate }}
+                    <span id="auto-typed" class="text-accent font-bold"></span>
+                </div>
+
+                <div class="pointer-events-none">
+                    <div class="lg:text-xl 2xl:text-2xl relative z-10 w-fit">{{ 'welcomeMessage1' | translate }}</div>
+                    <div class="lg:text-xl 2xl:text-2xl relative z-10 w-fit">{{ 'welcomeMessage2' | translate }}</div>
+                </div>
+
+                <div class="pt-4 relative z-10 w-fit pointer-events-auto">
+                    <button class="button-49 bg-primary after:bg-accent uppercase" role="button" routerLink="about">{{ 'discoverMore' | translate }}</button>
+                </div>
+
+                <div class="absolute top-0 left-0 h-section w-screen after:z-40 pointer-events-none after:content-[''] after:absolute after:bottom-[10px] after:left-0 after:h-[50px] after:w-[6000px] after:translate-y-full after:-translate-x-1/4 after:bg-gradient-to-b after:from-transparent after:via-[#8e8a8d] after:via-20% after:to-transparent">
+                    <img ngSrc="assets/images/clouds/cloud1.png" width="1951" height="583" sizes="80vw" alt="cloud1" class="cloud" style="--time: 1;" priority>
+                    <img ngSrc="assets/images/clouds/cloud2.png" width="2019" height="447" sizes="80vw" alt="cloud2" class="cloud" style="--time: 2;" priority>
+                    <img ngSrc="assets/images/clouds/cloud3.png" width="2049" height="1152" sizes="80vw" alt="cloud3" class="cloud" style="--time: 3;" priority>
+                    <img ngSrc="assets/images/clouds/cloud4.png" width="2049" height="701" sizes="80vw" alt="cloud4" class="cloud" style="--time: 4;" priority>
+                    <img ngSrc="assets/images/clouds/cloud5.png" width="2049" height="815" sizes="80vw" alt="cloud5" class="cloud" style="--time: 5;" priority>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+nav {
+    height: var(--topbar_height);
+}
+
+.custom-transition:has(li:hover) {
+    li {
+        opacity: 0.5;
+    }
+
+    li:hover {
+        opacity: 1;
+    }
+}
+
+.custom-transition li {
+    transition: all 300ms;
+    opacity: 0.75;
+    position: relative;
+
+    &::after {
+        content: '';
+        height: 2px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        transition: all 300ms;
+    }
+
+    &:hover::after {
+        width: 100%;
+    }
+}

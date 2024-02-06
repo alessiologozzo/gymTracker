@@ -1,0 +1,17 @@
+@if (dataLoaded) {
+<div class="mockup-code w-fit bg-base-300 custom-fade-in hidden lg:block">
+    <pre data-prefix="$"><code>npm i gymTracker</code></pre>
+    <pre data-prefix=">"><code>installing...</code></pre>
+    <pre data-prefix=">" class="text-warning"><code>Warning! This is still a work in progress</code></pre>
+</div>
+
+
+<div class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 bg-base-200 custom-fade-in p-8 rounded-lg w-[80%] lg:w-[600px] lg:xl:w-[850px] shadow-md shadow-base-300">
+    <div class="text-4xl">{{ 'temp1' | translate }} <span class="text-3xl italic">{{ userInfo.username }}!</span></div>
+    <div class="pt-6">{{ 'temp2' | translate }}</div>
+    <div>{{ 'temp3' | translate }}</div>
+    <div class="pt-5 link link-info"><a href="http://localhost:7080/realms/gymTracker/account/#/personal-info">Account info</a></div>
+</div>
+} @else {
+<app-loading-icon></app-loading-icon>
+}

@@ -1,0 +1,128 @@
+<div class="relative custom-min-h md:wrapper md:grid md:grid-cols-12 md:place-items-center" sf-transition="fade">
+
+    <div class="md:col-span-6 md:py-4">
+        <div class="w-full h-full absolute top-0 left-0 md:static md:w-[500px]">
+            <div class="relative h-full md:h-auto flex justify-center after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[30px] after:translate-y-1/2 after:w-full after:bg-base-100 overflow-hidden">
+                <div id="img-container" class="relative z-10 hidden md:block w-3/4">
+                    <img ngSrc="assets/images/phone-frame.png" width="589" height="1125" priority disableOptimizedSrcset alt="phone-frame" class="pointer-events-none">
+                </div>
+                <div class="absolute top-0 bottom-0 left-0 right-0 bg-img-whatsapp bg-"></div>
+                <div class="absolute top-5 left-0 ps-4 px-4 pb-20 md:px-28 md:pb-20 h-full overflow-y-auto" ms-type="y" ms-grabbedElement="img-container" ms-margin="25">
+                    <div class="chat chat-start pt-12" sf-transition="fade-left" sf-thresold="0.5">
+                        <div class="chat-bubble bg-success text-success-content max-w-[80%] xl:max-w-[70%]">{{ ('questions' | translate)[0] }}</div>
+                    </div>
+                    <div class="chat chat-end" sf-transition="fade-right" sf-thresold="0.5">
+                        <div class="chat-bubble bg-base-300 text-base-content max-w-[80%] xl:max-w-[70%]">{{ ('answers' | translate)[0] }}</div>
+                    </div>
+                    <div class="chat chat-end" sf-transition="fade-right" sf-thresold="0.5">
+                        <div class="chat-bubble bg-base-300 text-warning max-w-[80%] xl:max-w-[70%] text-6xl">
+                            <fa-icon [icon]="faSmile"></fa-icon>
+                        </div>
+                    </div>
+
+                    <div class="chat chat-start" sf-transition="fade-left" sf-thresold="0.5">
+                        <div class="chat-bubble bg-success text-success-content max-w-[80%] xl:max-w-[70%]">{{ ('questions' | translate)[1] }}</div>
+                    </div>
+                    <div class="chat chat-end" sf-transition="fade-right" sf-thresold="0.5">
+                        <div class="chat-bubble bg-base-300 text-base-content max-w-[80%] xl:max-w-[70%]">{{ ('answers' | translate)[1] }}</div>
+                    </div>
+
+                    <div class="chat chat-start" sf-transition="fade-left" sf-thresold="0.5">
+                        <div class="chat-bubble bg-success text-success-content max-w-[80%] xl:max-w-[70%]">{{ ('questions' | translate)[2] }}</div>
+                    </div>
+                    <div class="chat chat-end" sf-transition="fade-right" sf-thresold="0.5">
+                        <div class="chat-bubble bg-base-300 text-base-content max-w-[80%] xl:max-w-[70%]">{{ ('answers' | translate)[2] }}</div>
+                    </div>
+                    <div class="chat chat-end" sf-transition="fade-right" sf-thresold="0.5">
+                        <div class="chat-bubble bg-base-300 text-base-content max-w-[80%] xl:max-w-[70%]">{{ ('answers' | translate)[3] }}</div>
+                    </div>
+                    <div class="chat chat-end" sf-transition="fade-right" sf-thresold="0.5">
+                        <div class="chat-bubble bg-base-300 text-base-content max-w-[80%] xl:max-w-[70%] flex items-center gap-2">{{ ('answers' | translate)[4] }} <fa-icon [icon]="faLaughSquint" class="text-warning text-2xl"></fa-icon></div>
+                    </div>
+
+
+                    <div class="chat chat-start" sf-transition="fade-left" sf-thresold="0.5">
+                        <div class="chat-bubble bg-success text-success-content max-w-[80%] xl:max-w-[70%]">{{ ('questions' | translate)[3] }}</div>
+                    </div>
+                    <div class="chat chat-end" sf-transition="fade-right" sf-thresold="0.5">
+                        <div class="chat-bubble bg-base-300 text-base-content max-w-[80%] xl:max-w-[70%]">{{ ('answers' | translate)[5] }}</div>
+                    </div>
+
+                    <div class="chat chat-start" sf-transition="fade-left" sf-thresold="0.5">
+                        <div class="chat-bubble bg-success text-success-content max-w-[80%] xl:max-w-[70%]">{{ ('questions' | translate)[4] }}</div>
+                    </div>
+                    <div class="chat chat-end" sf-transition="fade-right" sf-thresold="0.5">
+                        <div class="chat-bubble bg-base-300 text-base-content max-w-[80%] xl:max-w-[70%] hidden md:block">{{ ('answers' | translate)[6] }}</div>
+                        <div class="chat-bubble bg-base-300 text-base-content max-w-[80%] xl:max-w-[70%] md:hidden">{{ 'alternativeAnswer' | translate }}</div>
+                    </div>
+                    <div class="chat chat-end" sf-transition="fade-right" sf-thresold="0.5">
+                        <div class="chat-bubble bg-base-300 text-base-content max-w-[80%] xl:max-w-[70%]">{{ ('answers' | translate)[7] }}</div>
+                    </div>
+                    <div class="chat chat-end" sf-transition="fade-right" sf-thresold="0.5">
+                        <div class="chat-bubble bg-base-300 text-base-content max-w-[80%] xl:max-w-[70%] flex items-center gap-2 flex-wrap">{{ ('answers' | translate)[8] }} <fa-icon [icon]="faBoat" class="text-primary text-2xl"></fa-icon> <fa-icon [icon]="faThumbsUp" class="text-secondary text-2xl"></fa-icon> <fa-icon [icon]="faFaceSmileBean" class="text-warning text-2xl"></fa-icon></div>
+                    </div>
+
+                    <div class="chat chat-end md:hidden" sf-transition="fade-right" sf-thresold="0.5">
+                        <div class="chat-bubble bg-base-300 text-base-content max-w-[80%] xl:max-w-[70%]">
+                            <div class="leading-7 flex gap-2 items-center"> Github: <a href="https://github.com/alessiologozzo/" class="text-sm italic underline text-info">https://github.com/alessiologozzo/</a> </div>
+                        </div>
+                    </div>
+                    <div class="chat chat-end md:hidden" sf-transition="fade-right" sf-thresold="0.5">
+                        <div class="chat-bubble bg-base-300 text-base-content max-w-[80%] xl:max-w-[70%]">
+                            <div class="leading-7 flex gap-2 items-center"> Linkedin: <a href="https://www.linkedin.com/in/alessio-l-570774282/" class="text-sm italic underline text-info">https://www.linkedin.com/in/alessio-l-570774282/</a> </div>
+                        </div>
+                    </div>
+                    <div class="chat chat-end md:hidden" sf-transition="fade-right" sf-thresold="0.5">
+                        <div class="chat-bubble bg-base-300 text-base-content max-w-[80%] xl:max-w-[70%]">
+                            Mail: <span class="italic">alessio.logozzo&#64;libero.it</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="md:col-span-6 xl:grid xl:grid-cols-12">
+        <div class="xl:col-span-5 3xl:col-span-4">
+            <div class="mockup-window border bg-base-300 hidden md:block md:w-[350px] lg:w-[500px]">
+                <div class="px-4 py-3 bg-base-200 grid grid-cols-12">
+                    <div class="col-span-12 pb-6 ps-3">
+                        <span class="text-2xl italic">{{ 'contacts' | translate }}</span>
+                    </div>
+                    <div class="col-span-1 flex flex-col gap-2 items-center">
+                        <fa-icon [icon]="faGithub" class="text-xl text-primary"></fa-icon>
+                        <fa-icon [icon]="faLinkedin" class="text-xl text-secondary md:pt-2 lg:pt-1"></fa-icon>
+                        <fa-icon [icon]="faEnvelope" class="text-xl text-accent pt-1 md:pt-3 lg:pt-1"></fa-icon>
+                    </div>
+                    <div class="col-span-11 flex flex-col gap-3">
+                        <div class="leading-7 flex gap-4 items-center"> Github: <a href="https://github.com/alessiologozzo/" class="text-sm italic underline text-info">https://github.com/alessiologozzo/</a> </div>
+                        <div class="leading-7 flex gap-4 items-center"> Linkedin: <a href="https://www.linkedin.com/in/alessio-l-570774282/" class="text-sm italic underline text-info">https://www.linkedin.com/in/alessio-l-570774282/</a> </div>
+                        <div class="leading-7 flex gap-4 items-center"> Mail: <span class="italic">alessio.logozzo&#64;libero.it</span> </div>
+                        <div class="self-end text-xl pt-9 tracking-wide">{{ 'thanks' | translate }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="xl:col-span-7 3xl:col-span-8">
+
+        </div>
+
+        <div class="xl:col-span-2 3xl:col-span-3">
+
+        </div>
+        
+        <div class="xl:col-span-10 3xl:col-span-9">
+            <div class="mockup-window border bg-base-300 mt-7 hidden md:block md:w-[350px] lg:w-[500px]">
+                <div class="px-4 py-4 bg-base-200 flex flex-col gap-4">
+                    <span class="text-2xl italic">{{ 'threeModels' | translate }}</span>
+                    <span>"Gym Dumbell 10K" by carloakuma <a href="https://sketchfab.com/carloakuma" class="underline text-info text-[13px]">(https://sketchfab.com/carloakuma)</a></span>
+                    <span>"Dumbbell" by Timothy Ahene <a href="https://sketchfab.com/timothyahene" class="underline text-info text-[13px]">(https://sketchfab.com/timothyahene)</a></span>
+                    <span>"Kettlebell" by Ya <a href="https://sketchfab.com/Yarik16" class="underline text-info text-[13px]">(https://sketchfab.com/Yarik16)</a></span>
+                    <span>"Gym Shaker Bottle" by ali_hidayat <a href="https://sketchfab.com/ali_hidayat" class="underline text-info text-[13px]">(https://sketchfab.com/ali_hidayat)</a></span>
+                </div>
+              </div>
+        </div>
+
+    </div>
+
+</div>

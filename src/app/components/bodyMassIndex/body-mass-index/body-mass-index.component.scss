@@ -1,0 +1,39 @@
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.custom-w {
+    width: 100%;
+
+    @media screen and (min-width: 1024px) {
+        width: calc(100% / 7);   
+    }
+}
+
+.toast-fade {
+    animation: animation-fade 8000ms linear;
+}
+
+@keyframes animation-fade {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

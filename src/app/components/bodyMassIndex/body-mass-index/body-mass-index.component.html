@@ -1,0 +1,104 @@
+<div id="bmi-toast" class="toast toast-start z-[100] opacity-0">
+    <div class="alert alert-success">
+        <span>{{ 'bmiToast' | translate }}</span>
+    </div>
+</div>
+
+@if (!dataLoaded) {
+<app-loading-icon></app-loading-icon>
+}
+@else {
+<div class="w-full grid grid-cols-12 pb-6 lg:absolute lg:top-1/2 lg:left-1/2 lg:-translate-y-1/2 lg:-translate-x-1/2 custom-fade-in lg:w-[98%] lg:rounded lg:bg-base-200 lg:shadow lg:shadow-base-300 lg:mx-auto lg:p-8 2xl:w-[90%] 2xl:p-16 3xl:w-[80%] 3xl:p-28">
+
+    <div class="hidden lg:col-span-3 lg:flex lg:flex-col lg:gap-10 xl:col-span-2">
+        <div class="flex gap-1">
+            <span class="text-3xl">{{ 'weight' | translate }}</span>
+            <span class="italic self-end">(Kg)</span>
+        </div>
+
+        <div class="flex gap-1">
+            <span class="text-3xl">{{ 'height' | translate }}</span>
+            <span class="italic self-end">(Cm)</span>
+        </div>
+    </div>
+
+    <div class="col-span-10 md:col-span-11 lg:col-span-8 xl:col-span-9 flex flex-col gap-10">
+        <div class="flex flex-col gap-5">
+            <div class="flex justify-center gap-1 lg:hidden">
+                <span class="text-3xl">{{ 'weight' | translate }}</span>
+                <span class="italic self-end">(Kg)</span>
+            </div>
+            <input type="range" [min]="MIN_WEIGHT" [max]="MAX_WEIGHT" [ngModel]="weight()" (ngModelChange)="weight.set($event)" class="range range-accent mt-1 lg:mt-3" [step]="STEP" />
+        </div>
+
+        <div class="flex flex-col gap-5">
+            <div class="flex justify-center gap-1 lg:hidden">
+                <span class="text-3xl">{{ 'height' | translate }}</span>
+                <span class="italic self-end">(Cm)</span>
+            </div>
+            <input type="range" [min]="MIN_HEIGHT" [max]="MAX_HEIGHT" [ngModel]="height()" (ngModelChange)="height.set($event)" class="range range-secondary mt-1 lg:mt-3" [step]="STEP" />
+        </div>
+    </div>
+
+    <div class="col-span-2 mt-10 ps-7 md:col-span-1 lg:mt-0 ">
+        <div class="flex flex-col justify-center items-center gap-20 lg:gap-5">
+            <input id="weight-element" type="number" class="input input-bordered bg-base-200 max-w-[80px] text-center" [min]="MIN_WEIGHT" [max]="MAX_WEIGHT" [ngModel]="weight()" (ngModelChange)="weight.set($event)" [step]="STEP">
+            <input id="height-element" type="number" class="input input-bordered bg-base-200 max-w-[80px] text-center" [min]="MIN_HEIGHT" [max]="MAX_HEIGHT" [ngModel]="height()" (ngModelChange)="height.set($event)" [step]="STEP">
+        </div>
+    </div>
+
+    <div class="col-span-12 text-center pt-10">
+        <div class="text-xl">{{ 'bmiResult' | translate }} <span class="text-4xl text-primary ps-1">{{ bmi() }}</span></div>
+    </div>
+
+    <div class="col-span-12 flex flex-col gap-5 text-center text-sm pt-12 lg:flex-row lg:gap-0">
+        <div class="custom-w flex flex-col gap-1 bg-green-100 text-black p-3 rounded-xl lg:rounded-none lg:rounded-s-xl relative">
+            <span>{{ 'severeThinness' | translate }}</span>
+            <span>&#60; 16.50</span>
+
+            <fa-icon [icon]="faLocationPin" class="absolute top-0 bottom-0 left-0 right-0 -translate-y-1/2 text-4xl text-primary" [class]="{'hidden': bmi() > 16.50 }"></fa-icon>
+        </div>
+        <div class="custom-w flex flex-col gap-1 bg-green-300 text-black p-3 rounded-xl lg:rounded-none relative">
+            <span>{{ 'underweight' | translate }}</span>
+            <span>&#60; 16.51 - 18.49</span>
+
+            <fa-icon [icon]="faLocationPin" class="absolute top-0 bottom-0 left-0 right-0 -translate-y-1/2 text-4xl text-primary" [class]="{'hidden': bmi() < 16.51 || bmi() > 18.49 }"></fa-icon>
+        </div>
+        <div class="custom-w flex flex-col gap-1 bg-green-500 text-black p-3 rounded-xl lg:rounded-none relative">
+            <span>{{ 'normalWeight' | translate }}</span>
+            <span>&#60; 18.50 - 24.99</span>
+
+            <fa-icon [icon]="faLocationPin" class="absolute top-0 bottom-0 left-0 right-0 -translate-y-1/2 text-4xl text-primary" [class]="{'hidden': bmi() < 18.50 || bmi() > 24.99 }"></fa-icon>
+        </div>
+        <div class="custom-w flex flex-col gap-1 bg-yellow-300 text-black p-3 rounded-xl lg:rounded-none relative">
+            <span>{{ 'overweight' | translate }}</span>
+            <span>&#60; 25.00 - 29.99</span>
+
+            <fa-icon [icon]="faLocationPin" class="absolute top-0 bottom-0 left-0 right-0 -translate-y-1/2 text-4xl text-primary" [class]="{'hidden': bmi() < 25 || bmi() > 29.99 }"></fa-icon>
+        </div>
+        <div class="custom-w flex flex-col gap-1 bg-orange-400 text-black p-3 rounded-xl lg:rounded-none relative">
+            <span>{{ 'obesity1' | translate }}</span>
+            <span>&#60; 30.00 - 34.99</span>
+
+            <fa-icon [icon]="faLocationPin" class="absolute top-0 bottom-0 left-0 right-0 -translate-y-1/2 text-4xl text-primary" [class]="{'hidden': bmi() < 30 || bmi() > 34.99 }"></fa-icon>
+        </div>
+        <div class="custom-w flex flex-col gap-1 bg-orange-600 text-black p-3 rounded-xl lg:rounded-none relative">
+            <span>{{ 'obesity2' | translate }}</span>
+            <span>&#60; 35.00 - 39.99</span>
+
+            <fa-icon [icon]="faLocationPin" class="absolute top-0 bottom-0 left-0 right-0 -translate-y-1/2 text-4xl text-primary" [class]="{'hidden': bmi() < 35 || bmi() > 39.99 }"></fa-icon>
+        </div>
+        <div class="custom-w flex flex-col gap-1 bg-red-500 text-black p-3 rounded-xl lg:rounded-none lg:rounded-e-xl relative">
+            <span>{{ 'obesity3' | translate }}</span>
+            <span>&#60; > 40</span>
+
+            <fa-icon [icon]="faLocationPin" class="absolute top-0 bottom-0 left-0 right-0 -translate-y-1/2 text-4xl text-primary" [class]="{'hidden': bmi() < 40 }"></fa-icon>
+        </div>
+    </div>
+
+
+    <div class="col-span-12 flex justify-end pt-14">
+        <div (click)="saveData()" class="btn btn-success">Salva</div>
+    </div>
+</div>
+}

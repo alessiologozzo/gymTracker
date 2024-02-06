@@ -1,13 +1,43 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dracula">
+
 <head>
-  <meta charset="utf-8">
-  <title>GymTracker</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta charset="utf-8">
+    <title>GymTracker</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
+
 <body>
-  <app-root></app-root>
+    <app-root></app-root>
 </body>
+
+<script>
+    const language = localStorage.getItem('language')
+    if (!language) {
+        let userLang = navigator.language
+        userLang = userLang.split('-')
+        if (userLang[0] == 'it') {
+            localStorage.setItem('language', 'it')
+        } else {
+            localStorage.setItem('language', 'en')
+        }
+    }
+
+    const root = document.documentElement
+    const theme = localStorage.getItem('theme')
+    if (!theme) {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            localStorage.setItem('theme', 'dark')
+            root.dataset['theme'] = 'dark'
+        } else {
+            localStorage.setItem('theme', 'light')
+            root.dataset['theme'] = 'light'
+        }
+    } else {
+        root.dataset.theme = theme
+    }
+</script>
+
 </html>
