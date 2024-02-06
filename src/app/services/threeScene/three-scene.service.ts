@@ -30,6 +30,7 @@ export class ThreeSceneService {
     private loaded = false
     loadedSubject = new Subject<boolean>()
     private themeEffect = effect(() => {
+        this.configService.theme()
         if(this.scene) {
             this.changeSceneBackground(this.configService.theme())
         }
